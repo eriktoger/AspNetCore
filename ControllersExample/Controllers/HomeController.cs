@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using IActionResultExample.Models;
+using System.Net;
 
 namespace ControllersExample.Controllers
 {
@@ -17,20 +19,38 @@ namespace ControllersExample.Controllers
         }
 
         [Route("/books")]
-        public IActionResult Book()
+        public IActionResult Book(int? bookId)
         {
-            if (!Request.Query.ContainsKey("bookid"))
+            if (bookId == null )
             {
                 Response.StatusCode = 400;
                 return BadRequest("Book Id is not supplied");
             }
 
-            if (Request.Query["bookid"] == "404")
+            if (bookId == 404)
             {
                 return new NotFoundResult();
             }
 
             return new VirtualFileResult("/collision.png", "image/png");
+        }
+
+        [Route("/books/{Author}/{BookId}")]
+        public IActionResult BookWithId(Book? book)
+        {
+            
+
+            if (book == null)
+            {
+                return new NotFoundResult();
+            }
+
+            if (book.BookId < 0)
+            {
+                return NotFound( "Id must be non-negative");
+            }
+
+            return Content(book.ToString(), "plain/text");
         }
 
         [Route("")]
