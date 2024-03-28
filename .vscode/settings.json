@@ -1,3 +1,3 @@
 {
-    "dotnet.defaultSolution": "ModelValidation/ModelValidationsExample.sln"
+    "dotnet.defaultSolution": "DependecyInjection/DIExample.sln"
 }

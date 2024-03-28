@@ -10,3 +10,13 @@ My repo for https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-p
 {
     "dotnet.defaultSolution": "ModelValidation/ModelValidationsExample.sln"
 }
+### Creating the project from command line without VS:
+- mkdir DependcyInjection && cd DependcyInjection
+- dotnet new sln -n DIExample
+- dotnet new classlib -n Services
+- mkdir DIExample && cd DIExample
+- dotnet new web
+- dotnet sln add DIExample/DIExample.csproj 
+- dotnet aspnet-codegenerator --project . controller  -name "HomeController" -outDir "Controllers"
+- Change  "dotnet.defaultSolution": "ModelValidation/ModelValidationsExample.sln" to  "dotnet.defaultSolution": "DependecyInjection/DIExample.sln"
+- dotnet add reference ../Services/Services.csproj 
