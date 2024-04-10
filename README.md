@@ -10,6 +10,8 @@ My repo for https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-p
 {
     "dotnet.defaultSolution": "ModelValidation/ModelValidationsExample.sln"
 }
+// and also add the .csproj to the sln like: dotnet sln add DIExample/DIExample.csproj 
+
 ### Creating the project from command line without VS:
 - mkdir DependcyInjection && cd DependcyInjection
 - dotnet new sln -n DIExample
