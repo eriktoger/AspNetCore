@@ -23,3 +23,7 @@ My repo for https://www.udemy.com/course/asp-net-core-true-ultimate-guide-real-p
 - dotnet aspnet-codegenerator --project . controller  -name "HomeController" -outDir "Controllers"
 - Change  "dotnet.defaultSolution": "ModelValidation/ModelValidationsExample.sln" to  "dotnet.defaultSolution": "DependecyInjection/DIExample.sln"
 - dotnet add reference ../Services/Services.csproj 
+- dotnet mkdir Test && cd Test
+- dotnet new xunit 
+- cd .. # back to the solution
+- dotnet sln add Test/Test.csproj # Run tests with dotnet test --filter TEST-NAME or dotnet test -l "console;verbosity=normal"
